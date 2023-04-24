@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2020 at 10:33 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.1.26
+-- Generation Time: Apr 21, 2023 at 03:20 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -49,15 +48,10 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`, `fname`, `lname`, `gender`, `dob`, `contact`, `address`, `image`, `created_on`, `group_id`) VALUES
-(1, 'admin', 'ndbhalerao91@gmail.com', 'aa7f019c326413d5b8bcad4314228bcd33ef557f5d81c7cc977f7728156f4357', 'Nikhil', 'Bhalerao', 'Male', '1988-05-29', '9423979339', 'Nashik', '20141025_004121_918_Developer.png', '2018-04-30', 1),
-(6, 'user', 'raj@gmail.com', 'bbcff4db4d8057800d59a68224efd87e545fa1512dfc3ef68298283fbb3b6358', 'raj', 'sharma', 'Male', '2019-01-13', '7412589636', 'pune', '', '2019-01-26', 2),
-(10, 'user', 'pritam@gmail.com', '3b8c917583735a4f4e89613a88155205a64168447532fe3cec0ea21fbe639d21', 'pritam', 'kadam', 'Female', '1996-06-15', '8605812147', 'ozar (mig)', '', '2019-06-29', 4),
-(11, 'user', 'pritam@gmail.com', '3b8c917583735a4f4e89613a88155205a64168447532fe3cec0ea21fbe639d21', 'pritam', 'kadam', 'Female', '2014-07-15', '7758412369', 'ozar Mig', '', '2019-07-01', 5),
-(12, 'user', 'apurva@gmail.com', '05b358e1e7d06838d7da30d5dc5a0c4e7fd1522eaf974ffc7dd0f4332ab6b271', 'apurva', 'Bari', 'Female', '2011-11-24', '7758412369', 'nashik', 'par.jpg', '2019-07-01', 7),
-(13, 'user', 'priya@gmail.com', '57cb0ae2533339741fd652a66fe0edea7c3733d8e210934174e05a0792e99677', 'priya', 'khade', 'Female', '2016-08-10', '5446799664', 'niphad', 'Jellyfish.jpg', '2019-07-01', 4),
-(14, 'user', '', '241992a37c6a7a7044edca190836547108001676d2f586efa0f1923da5372454', 'pritam', '', '', '', '', '', '', '2019-07-01', 0),
-(15, 'user', '', '241992a37c6a7a7044edca190836547108001676d2f586efa0f1923da5372454', 'maths', '', '', '', '', '', '', '2019-07-01', 0),
-(16, 'user', 'kadampritam17@gmail.com', '3b8c917583735a4f4e89613a88155205a64168447532fe3cec0ea21fbe639d21', 'pritam', 'kadam', 'Female', '1996-06-15', '8605812147', 'ozar mig', 'apple.jpg', '2019-09-20', 4);
+(1, 'admin', 'miniproject@gmail.com', 'aa7f019c326413d5b8bcad4314228bcd33ef557f5d81c7cc977f7728156f4357', 'Mini', 'Project', 'Male', '2023-03-21', '2337777777', 'Nashik', '2d3bd90dbd365ede3ceb65a418608862481703cc.jpg', '2018-04-30', 1),
+(17, 'user', 'pklawson@st.ug.edu.gh', '1511476083119948bd34613819d059087b6dcd2a82198b723ed5217d6c6dc31f', 'Pachomius', 'Lawson', 'Male', '2001-09-12', '0247116047', 'University of Ghana', 'back.png', '2023-04-21', 4),
+(18, 'user', 'pkotumfuo@st.ug.edu.gh', '1511476083119948bd34613819d059087b6dcd2a82198b723ed5217d6c6dc31f', 'Prince', 'Otumfuo', 'Male', '2001-07-07', '0593198244', 'University of Ghana', 'logo.png', '2023-04-21', 5),
+(19, 'user', 'hi@gmail.com', '1511476083119948bd34613819d059087b6dcd2a82198b723ed5217d6c6dc31f', 'Paul', 'Nketia', 'Male', '1999-06-06', '0245533236', 'University of Ghana', 'back.png', '2023-04-21', 6);
 
 -- --------------------------------------------------------
 
@@ -74,6 +68,13 @@ CREATE TABLE `allot` (
   `added_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `allot`
+--
+
+INSERT INTO `allot` (`id`, `class_id`, `room_type_id`, `subject_id`, `exam_id`, `added_date`) VALUES
+(1, 0, 0, 0, 0, '2023-03-28');
+
 -- --------------------------------------------------------
 
 --
@@ -89,7 +90,7 @@ CREATE TABLE `allot_student` (
   `end_time` varchar(20) NOT NULL,
   `room_id` int(50) NOT NULL,
   `student_id` int(50) NOT NULL,
-  `teacher_id` int(50) NULL,
+  `teacher_id` int(50) DEFAULT NULL,
   `stud_id` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -109,6 +110,13 @@ CREATE TABLE `exam` (
   `name` varchar(100) NOT NULL,
   `added_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exam`
+--
+
+INSERT INTO `exam` (`id`, `class_id`, `subject_id`, `exam_date`, `start_time`, `end_time`, `name`, `added_date`) VALUES
+(1, 0, 0, '0000-00-00', '', '', '', '2023-03-28');
 
 -- --------------------------------------------------------
 
@@ -134,7 +142,7 @@ CREATE TABLE `manage_website` (
 --
 
 INSERT INTO `manage_website` (`id`, `title`, `short_title`, `logo`, `footer`, `currency_code`, `currency_symbol`, `login_logo`, `invoice_logo`, `background_login_image`) VALUES
-(1, 'Exam Hall Management', 'EHM', 'images.jpg', 'Upturn India Technology', 'INR', 'â‚¹', 'images.jpg', '', 'background-form-login-1.png');
+(1, 'Exam Hall Management', 'EHM', 'elogo.jpg', 'Upturn India Technology', 'INR', 'â‚¹', 'elogo.jpg', '', 'favicon.ico');
 
 -- --------------------------------------------------------
 
@@ -171,6 +179,13 @@ CREATE TABLE `tbl_class` (
   `classname` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_class`
+--
+
+INSERT INTO `tbl_class` (`id`, `classname`) VALUES
+(1, 'OperatingSystem');
+
 -- --------------------------------------------------------
 
 --
@@ -192,7 +207,7 @@ CREATE TABLE `tbl_email_config` (
 --
 
 INSERT INTO `tbl_email_config` (`e_id`, `name`, `mail_driver_host`, `mail_port`, `mail_username`, `mail_password`, `mail_encrypt`) VALUES
-(1, '<student register> ', 'mail.gmail.com', 587, 'ndbhalerao91@gmail.com', 'abc@123', 'sdsad');
+(1, '<student register> ', 'mail.gmail.com', 587, 'miniproject@gmail.com', 'abc@123', 'sdsad');
 
 -- --------------------------------------------------------
 
@@ -215,8 +230,7 @@ INSERT INTO `tbl_group` (`id`, `name`, `description`) VALUES
 (4, 'user1', 'user1'),
 (5, 'user2', 'user2'),
 (6, 'user3', 'class nd sub adding'),
-(7, 'user4', 'user permissin'),
-(8, 'liu', 'liu');
+(7, 'user4', 'user permissin');
 
 -- --------------------------------------------------------
 
@@ -367,6 +381,13 @@ CREATE TABLE `tbl_subject` (
   `subjectname` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_subject`
+--
+
+INSERT INTO `tbl_subject` (`id`, `class_id`, `subjectname`) VALUES
+(1, 1, 'Os');
+
 -- --------------------------------------------------------
 
 --
@@ -386,6 +407,13 @@ CREATE TABLE `tbl_teacher` (
   `tcontact` int(50) NOT NULL,
   `taddress` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_teacher`
+--
+
+INSERT INTO `tbl_teacher` (`id`, `tfname`, `tlname`, `classname`, `subjectname`, `temail`, `password`, `tgender`, `tdob`, `tcontact`, `taddress`) VALUES
+(1, 'Good', 'Goofy', '1', '1', 'good@hey.com', '1511476083119948bd34613819d059087b6dcd2a82198b723ed5217d6c6dc31f', 'Male', '2023-03-14', 2147483647, 'State');
 
 --
 -- Indexes for dumped tables
@@ -495,13 +523,13 @@ ALTER TABLE `tbl_teacher`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `allot`
 --
 ALTER TABLE `allot`
-  MODIFY `id` int(60) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(60) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `allot_student`
@@ -513,7 +541,7 @@ ALTER TABLE `allot_student`
 -- AUTO_INCREMENT for table `exam`
 --
 ALTER TABLE `exam`
-  MODIFY `id` int(60) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(60) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `manage_website`
@@ -537,7 +565,7 @@ ALTER TABLE `room_type`
 -- AUTO_INCREMENT for table `tbl_class`
 --
 ALTER TABLE `tbl_class`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_email_config`
@@ -579,13 +607,13 @@ ALTER TABLE `tbl_student`
 -- AUTO_INCREMENT for table `tbl_subject`
 --
 ALTER TABLE `tbl_subject`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_teacher`
 --
 ALTER TABLE `tbl_teacher`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
