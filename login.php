@@ -77,12 +77,12 @@ else {?>
              $result_login = $conn->query($sql_login);
              $row_login = mysqli_fetch_array($result_login);
              ?>
-            <div class="container-fluid"  style="background-image: url('uploadImage/Logo/<?php echo $row_login['background_login_image'];?>'); background-image: url('uploadImage/1.png') ">
+            <div class="container-fluid"  style="background-image: url('uploadImage/Logo/<?php echo $row_login['background_login_image'];?>'); background-image: url('uploadImage/1.jpg') ">
                 <div class="row justify-content-center" >
                     <div class="col-lg-4">
                         <div class="login-content card">
                             <div class="login-form">
-                                <center><img src="uploadImage/Logo/1.png" style="width:50%;"></center><br>
+                                <center><img src="uploadImage/Logo/elogo.jpg" style="width:50%;"></center><br>
                                 <form method="POST">
                                     <div class="form-group">
                                         <label>Email address</label>
@@ -97,7 +97,7 @@ else {?>
                                                 <a href="forgot_password.php">Forgotten Password?</a>
                                            </label>   
                                     </div>
-                                    <button type="submit" name="btn_login" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
+                                    <button type="submit" name="btn_login" class="btn btn-danger btn-flat m-b-30 m-t-30">Sign in</button>
                                   
                                 </form>
                             </div>
